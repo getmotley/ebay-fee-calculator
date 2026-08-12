@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://getmotley.github.io/ebay-fee-calculator/sitemap.xml

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eBay Fee Calculator (2026) — Free, See Your Real Take-Home</title>
+<meta name="description" content="Free eBay fee calculator for 2026. Enter your price, shipping and cost to see eBay's final value fee and per-order fee, plus your real net profit and margin. Adjustable category rate. No signup.">
+<link rel="canonical" href="https://getmotley.github.io/ebay-fee-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getmotley.github.io/ebay-fee-calculator/">
+<meta property="og:title" content="eBay Fee Calculator (2026)">
+<meta property="og:description" content="See exactly what eBay takes and what you actually keep. Free, no signup, updated for 2026 fees.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#c0562b">
+<style>
+  :root{
+    --ink:#1b1a17;--muted:#6b675f;--line:#e7e3da;--bg:#fbf9f4;--card:#fff;
+    --accent:#c0562b;--accent-ink:#9a4522;--good:#1f7a4d;--wash:#f4efe6;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  a{color:var(--accent-ink)}
+  .wrap{max-width:780px;margin:0 auto;padding:22px 18px 72px}
+  header.hero{padding:14px 0 6px}
+  .kicker{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--wash);border:1px solid var(--line);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+  h1{font-size:31px;line-height:1.12;margin:.1em 0 .25em;letter-spacing:-.015em}
+  .sub{color:var(--muted);font-size:17px;margin:.2em 0 1.3em;max-width:60ch}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 1px 0 rgba(27,26,23,.03)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px}
+  input[type=number]{width:100%;min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:9px;font-size:16px;background:#fff;color:var(--ink)}
+  input[type=number]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+  .out{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px}
+  .line{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid var(--line)}
+  .line span:first-child{color:var(--muted)}
+  .line span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .big{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-top:16px}
+  .big span:first-child{font-size:15px;color:var(--muted)}
+  .big .v{font-size:31px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .big .v.pos{color:var(--good)}.big .v.neg{color:var(--accent)}
+  .mgn{color:var(--muted);font-size:14px;margin-top:2px;text-align:right}
+  section{margin-top:40px}
+  h2{font-size:21px;margin:0 0 10px;letter-spacing:-.01em}
+  p{color:#3a3833;margin:.4em 0}
+  .lede{color:var(--muted)}
+  .fees{list-style:none;padding:0;margin:12px 0 0;border-top:1px solid var(--line)}
+  .fees li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .fees b{font-weight:600}
+  .fees .amt{color:var(--accent-ink);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+  details{border:1px solid var(--line);border-radius:11px;background:var(--card);margin-top:10px;overflow:hidden}
+  summary{cursor:pointer;padding:14px 16px;font-weight:600;list-style:none;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:16px;top:13px;color:var(--muted);font-weight:400;font-size:20px}
+  details[open] summary::after{content:"\2013"}
+  details .body{padding:0 16px 15px;color:#3a3833}
+  .also{margin-top:34px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--wash)}
+  .also a{font-weight:600}
+  .foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+  .foot b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="kicker">Updated for 2026 US fees</span>
+  <h1>eBay Fee Calculator</h1>
+  <p class="sub">Enter a sale and see exactly what eBay takes and what you actually keep. Free, no signup, no tracking. The math runs in your browser.</p>
+</header>
+
+<div class="card">
+  <div class="grid">
+    <div><label for="price">Item price ($)</label><input id="price" type="number" min="0" step="0.01" value="40.00" inputmode="decimal"></div>
+    <div><label for="ship">Shipping you charge ($)</label><input id="ship" type="number" min="0" step="0.01" value="6.00" inputmode="decimal"></div>
+    <div><label for="cost">Your cost per item ($)</label><input id="cost" type="number" min="0" step="0.01" value="18.00" inputmode="decimal"></div>
+    <div><label for="qty">Quantity</label><input id="qty" type="number" min="1" step="1" value="1" inputmode="numeric"></div>
+    <div><label for="fvf">Final value fee (%) — varies 12&ndash;15% by category</label><input id="fvf" type="number" min="0" step="0.01" value="13.6" inputmode="decimal"></div>
+  </div>
+  <div class="out" id="out" aria-live="polite"></div>
+</div>
+
+<section>
+  <h2>What eBay charges in 2026</h2>
+  <p class="lede">eBay takes a percentage of the whole order plus a small flat fee per order. Here is what the calculator applies.</p>
+  <ul class="fees">
+    <li><span><b>Final value fee</b> — % of item + shipping (+ tax)</span><span class="amt">~13.6%<br>(12&ndash;15% by category)</span></li>
+    <li><span><b>Per-order fee</b> — flat, per order</span><span class="amt">$0.30 (&le;$10)<br>$0.40 (&gt;$10)</span></li>
+  </ul>
+  <p class="lede" style="margin-top:12px">The final value rate depends on your category, so it is an editable field above. A store subscription lowers it in many categories; a "Below Standard" seller rating adds 6%. Figures are estimates for US sellers.</p>
+</section>
+
+<section>
+  <h2>Why sellers use this</h2>
+  <p>A $40 sale does not put $40 in your pocket. eBay's final value fee lands on the item, the shipping, and the tax, then adds a flat per-order charge on top, all before your own cost. Run the numbers here first so you list at a price that actually clears a margin.</p>
+</section>
+
+<section>
+  <h2>Frequently asked questions</h2>
+
+  <details>
+    <summary>How much are eBay seller fees in 2026?</summary>
+    <div class="body">For most categories eBay charges a final value fee of about 13.6% of the total order (item + shipping + tax), plus a per-order fee of $0.30 on orders of $10 or less or $0.40 on orders over $10. The percentage ranges roughly 12% to 15% depending on the category.</div>
+  </details>
+
+  <details>
+    <summary>Does eBay charge fees on shipping?</summary>
+    <div class="body">Yes. The final value fee is calculated on the full amount the buyer pays, including the shipping you charge and sales tax, not just the item price. This calculator applies the fee to item + shipping.</div>
+  </details>
+
+  <details>
+    <summary>What is the eBay per-order fee?</summary>
+    <div class="body">On top of the percentage fee, eBay adds a flat fee per order: $0.30 if the order total is $10 or less, or $0.40 if it is over $10. It is charged once per order, not per item.</div>
+  </details>
+
+  <details>
+    <summary>Why do eBay fees vary so much?</summary>
+    <div class="body">The final value percentage is set per category (roughly 12% to 15%). A paid Store subscription lowers it in many categories, while an account rated "Below Standard" pays an extra 6%. Set the rate field to your own category for an accurate result.</div>
+  </details>
+
+  <details>
+    <summary>Is this calculator free?</summary>
+    <div class="body">Yes. It is free, needs no account, and stores nothing. Every calculation runs in your browser, so your numbers never leave your device.</div>
+  </details>
+</section>
+
+<div class="also">
+  Selling on Etsy too? Try the <a href="https://getmotley.github.io/etsy-fee-calculator/">Etsy Fee &amp; Profit Calculator</a>.
+</div>
+
+<div class="foot">
+  <p><b>A free tool for eBay sellers.</b> No account, no tracking, no catch. Fees reflect eBay's 2026 US schedule and are estimates, not financial advice. Not affiliated with eBay, Inc.</p>
+</div>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebApplication",
+      "name":"eBay Fee Calculator",
+      "url":"https://getmotley.github.io/ebay-fee-calculator/",
+      "applicationCategory":"BusinessApplication",
+      "operatingSystem":"Any",
+      "description":"Free calculator that shows eBay's 2026 final value fee and per-order fee and your real net profit and margin.",
+      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"How much are eBay seller fees in 2026?","acceptedAnswer":{"@type":"Answer","text":"For most categories eBay charges a final value fee of about 13.6% of the total order (item + shipping + tax), plus a per-order fee of $0.30 on orders of $10 or less or $0.40 on orders over $10. The percentage ranges roughly 12% to 15% depending on category."}},
+        {"@type":"Question","name":"Does eBay charge fees on shipping?","acceptedAnswer":{"@type":"Answer","text":"Yes. The final value fee is calculated on the full amount the buyer pays, including shipping and sales tax, not just the item price."}},
+        {"@type":"Question","name":"What is the eBay per-order fee?","acceptedAnswer":{"@type":"Answer","text":"eBay adds a flat fee per order: $0.30 if the order total is $10 or less, or $0.40 if it is over $10. It is charged once per order, not per item."}},
+        {"@type":"Question","name":"Why do eBay fees vary?","acceptedAnswer":{"@type":"Answer","text":"The final value percentage is set per category (roughly 12% to 15%). A paid Store subscription lowers it, while a Below Standard account rating adds 6%."}},
+        {"@type":"Question","name":"Is this calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free, needs no account, and stores nothing. Every calculation runs in your browser."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+function ebayFees(itemPrice, shippingCharged, itemCost, quantity, fvfPct){
+  const r2 = x => Math.round(x*100)/100;
+  const base = (itemPrice + shippingCharged) * quantity;   // fee base: item + shipping
+  const fvf = r2(base * (fvfPct/100));
+  const perOrder = base > 10 ? 0.40 : 0.30;                // flat, per order, tiered at $10
+  const totalFees = r2(fvf + perOrder);
+  const revenue = r2(itemPrice * quantity);
+  const net = r2(revenue - totalFees - itemCost*quantity);
+  const margin = revenue > 0 ? Math.round(net/revenue*1000)/10 : 0;
+  return {fvf, perOrder, totalFees, revenue, net, margin};
+}
+const $ = id => document.getElementById(id);
+function money(x){return (x<0?'-$':'$')+Math.abs(x).toFixed(2);}
+function line(label,val){return '<div class="line"><span>'+label+'</span><span>'+money(val)+'</span></div>';}
+function render(){
+  const r = ebayFees(+$('price').value||0, +$('ship').value||0, +$('cost').value||0,
+                     Math.max(1,+$('qty').value||1), +$('fvf').value||0);
+  $('out').innerHTML =
+    line('Final value fee ('+(+$('fvf').value||0).toFixed(2)+'%)', r.fvf)+
+    line('Per-order fee', r.perOrder)+
+    line('Total eBay fees', r.totalFees)+
+    '<div class="big"><span>Your net profit</span><span class="v '+(r.net>=0?'pos':'neg')+'">'+money(r.net)+'</span></div>'+
+    '<div class="mgn">'+r.margin.toFixed(1)+'% margin on '+money(r.revenue)+' revenue</div>';
+}
+['price','ship','cost','qty','fvf'].forEach(id=>$(id).addEventListener('input',render));
+render();
+</script>
+
+</body>
+</html>
